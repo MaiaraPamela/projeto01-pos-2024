@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Boletim{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+  {% if data['boletim'] %}
+  <!-- Formulário de seleção de ano letivo -->
+  <div class="mb-4">
+    <form action="{{ url_for('boletim') }}" method="get" id="id_boletim_form">
+      <label for="id_ano_letivo" class="form-label fs-4">Ano Letivo</label>
+      <select class="form-select" name="ano_letivo" id="id_ano_letivo" onchange="this.form.submit()">
+        <option value="">Selecione o ano letivo</option>
+        {% for ano in data['anos_letivos'] %}
+        <option 
+          value="{{ ano['ano_letivo'] }}.{{ ano['periodo_letivo'] }}" 
+          {% if data['ano_selecionado'] == ano['ano_letivo'] ~ '.' ~ ano['periodo_letivo'] %} selected {% endif %}
+        >
+          {{ ano['ano_letivo'] }}.{{ ano['periodo_letivo'] }}
+        </option>
+        {% endfor %}
+      </select>
+    </form>
+  </div>
+
+  <!-- Tabela de boletim -->
+  <table class="table table-striped table-hover mt-3">
+    <thead class="table-dark">
+      <tr>
+        <th>Disciplina</th>
+        <th>Nota 1</th>
+        <th>Nota 2</th>
+        <th>Nota 3</th>
+        <th>Nota 4</th>
+        <th>Média Final</th>
+        <th>Situação</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for disciplina in data['boletim'] %}
+      <tr>
+        <td>{{ disciplina['disciplina'] }}</td>
+        <td>{{ disciplina['nota_etapa_1']['nota'] or '' }}</td>
+        <td>{{ disciplina['nota_etapa_2']['nota'] or '' }}</td>
+        <td>{{ disciplina['nota_etapa_3']['nota'] or '' }}</td>
+        <td>{{ disciplina['nota_etapa_4']['nota'] or '' }}</td>
+        <td>{{ disciplina['media_final_disciplina'] or '' }}</td>
+        <td>{{ disciplina['situacao'] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+  <!-- Mensagem caso nenhum ano letivo esteja selecionado -->
+  <h3 class="text-center">Selecione o ano letivo</h3>
+  <form action="{{ url_for('boletim') }}" method="get" id="id_boletim_form" class="mt-4">
+    <label for="id_ano_letivo" class="form-label fs-4">Ano Letivo</label>
+    <select class="form-select" name="ano_letivo" id="id_ano_letivo" onchange="this.form.submit()">
+      <option value="">Selecione o ano letivo</option>
+      {% for ano in data['anos_letivos'] %}
+      <option value="{{ ano['ano_letivo'] }}.{{ ano['periodo_letivo'] }}">
+        {{ ano['ano_letivo'] }}.{{ ano['periodo_letivo'] }}
+      </option>
+      {% endfor %}
+    </select>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

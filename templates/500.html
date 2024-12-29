@@ -1,0 +1,12 @@
+{% extends 'error_page_base.html' %}
+
+{% block title %}Página Não Encontrada{% endblock %}
+
+{% block content %}
+    <div class="container text-center">
+        <h1 class="display-4">Erro no Servidor</h1>
+        <p class="lead">Ocorreu um problema no servidor. Não se preocupe, não foi sua culpa! 😺</p>
+        <p>Você pode tentar voltar para a página inicial.</p>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">Voltar para o Início</a>
+    </div>
+{% endblock %}

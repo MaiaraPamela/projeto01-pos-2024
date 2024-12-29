@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ data['user_data']['vinculo']['nome'] }} - Profile{% endblock %}
+
+{% block content %}
+<section class="profile">
+  <div class="profile-header">
+    <img src="{{ data['user_data']['url_foto_150x200'] }}" alt="User Photo" class="profile-photo">
+    <h1>{{ data['user_data']['vinculo']['nome'] }}</h1>
+  </div>
+  <div class="profile-details">
+    <div><strong>Enrollment:</strong> {{ data['user_data']['matricula'] }}</div>
+    <div><strong>CPF:</strong> {{ data['user_data']['cpf'] }}</div>
+    <div><strong>Course:</strong> {{ data['user_data']['vinculo']['curso'] }}</div>
+  </div>
+  <div class="profile-actions">
+    <a href="{{ url_for('boletim') }}" class="btn btn-secondary">View Grades</a>
+  </div>
+</section>
+{% endblock %}

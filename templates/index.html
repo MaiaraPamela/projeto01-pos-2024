@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Login - MyApp{% endblock %}
+
+{% block content %}
+<section class="login-section">
+  <div class="login-container">
+    <h2>Access Your Account</h2>
+    <p>Log in to access exclusive content and features.</p>
+    <a href="{{ url_for('login') }}" class="btn btn-primary">Sign In with SUAP</a>
+  </div>
+</section>
+{% endblock %}

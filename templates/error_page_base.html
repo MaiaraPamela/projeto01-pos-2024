@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS Bootstrap -->
+    <link 
+      rel="stylesheet" 
+      href="{{ url_for('static', filename='css/bootstrap.min.css') }}" 
+    />
+
+    <!-- Estilos personalizados -->
+    <link 
+      rel="stylesheet" 
+      href="{{ url_for('static', filename='css/styles.css') }}" 
+    />
+
+    <title>{% block title %}Título Padrão{% endblock %}</title>
+  </head>
+  <body>
+    <!-- Barra de navegação -->
+    {% include "includes/navbar.html" %}
+
+    <!-- Conteúdo principal -->
+    <main class="container mt-4">
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Scripts -->
+    <script 
+      src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"
+    ></script>
+    <script 
+      src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+  </body>
+</html>

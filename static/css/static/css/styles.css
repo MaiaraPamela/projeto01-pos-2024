@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100;300;400;500;700;900&display=swap");
+
+body {
+  font-family: "Roboto Mono", monospace;
+  background-color: #1e1e2f;
+  color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+}
+
+::after,
+::before {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #ff6f61;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #ffc75f;
+}
+
+li {
+  list-style: none;
+}
+
+h1 {
+  font-weight: 900;
+  font-size: 2rem;
+  color: #ff6f61;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.main {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: #252545;
+  transition: all 0.4s ease;
+}
+
+/* Sidebar */
+#sidebar {
+  width: 80px;
+  background: linear-gradient(135deg, #ff6f61, #ffc75f);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+#sidebar.expand {
+  width: 300px;
+}
+
+#user_avatar {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #f4f4f9;
+}
+
+.toggle-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  padding: 1rem;
+}
+
+.toggle-btn i {
+  font-size: 1.8rem;
+  color: #1e1e2f;
+}
+
+.sidebar-logo {
+  text-align: center;
+  padding: 1rem;
+}
+
+.sidebar-logo a {
+  color: #1e1e2f;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+#sidebar:not(.expand) .sidebar-logo,
+#sidebar:not(.expand) a.sidebar-link span {
+  display: none;
+}
+
+.sidebar-nav {
+  padding: 1rem 0;
+}
+
+a.sidebar-link {
+  padding: 0.8rem 1.2rem;
+  color: #1e1e2f;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: rgba(244, 244, 249, 0.15);
+  margin: 0.5rem 0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+a.sidebar-link:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffc75f;
+}
+
+/* Navbar */
+.navbar-bg-color {
+  background: linear-gradient(135deg, #252545, #1e1e2f);
+}
+
+.logo {
+  color: #ff6f61;
+  font-weight: bold;
+}
+
+.logo:hover {
+  color: #ffc75f;
+}
+
+.btn-nav {
+  font-family: "Roboto Mono", monospace;
+  color: #ff6f61;
+}
+
+.btn-nav:hover {
+  color: #ffc75f;
+}
+
+/* User Page */
+.user-infos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.user-dado {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.user-image {
+  border: 4px solid #ffc75f;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-options {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Boletim */
+.form-select {
+  width: 50%;
+  background-color: #ff6f61;
+  color: #1e1e2f;
+  border: none;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.form-select:hover {
+  background-color: #ffc75f;
+}
